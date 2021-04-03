@@ -1,0 +1,30 @@
+﻿@page
+@model AspNetCoreFundamentals.Pages.ListModel
+@{
+}
+<h1>Formula 1 Teams</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model.Teams)
+        {
+        <tr>
+            <td>@team.Name</td>
+            <td>@team.Location</td>
+            <td>
+                <a class="btn btn-lg" asp-page="./Details" asp-route-teamId="@team.Id" >Edit </a>
+                <a class="btn btn-lg" asp-page="./Details">Delete </a>
+            </td>
+           
+        </tr>
+        }
+    </tbody>
+</table>
+

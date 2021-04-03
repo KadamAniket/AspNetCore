@@ -1,0 +1,22 @@
+﻿@page "{teamId:int}"
+@model AspNetCoreFundamentals.Pages.DetailsModel
+@{
+}
+
+<h1>Showing details for @Model.Team.Name</h1>
+
+<div class="form-group">
+    <label class="col-form-label">Name</label>
+    <label class="form-control">@Model.Team.Name</label>
+
+    <label class="col-form-label">Location</label>
+    <label class="form-control">@Model.Team.Location</label>
+
+    <label class="col-form-label">Constructor Championship</label>
+    <label class="form-control">@Model.Team.ConstructorChampionships</label>
+
+    <label class="col-form-label">Driver Championship</label>
+    <label class="form-control">@Model.Team.DriverChampionships</label>
+</div>
+
+<a asp-page="List">Back</a>
