@@ -1,10 +1,5 @@
 ﻿using DependencyInjectionWebApi.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DependencyInjectionWebApi.Controllers
 {
@@ -13,15 +8,46 @@ namespace DependencyInjectionWebApi.Controllers
     public class HomeController : ControllerBase
     {
         private readonly IGuidService guidService;
+        private readonly ISingletonService service;
+        private readonly ICustomLogger logger;
 
-        public HomeController(IGuidService guidService)
+        public HomeController(IGuidService guidService, ISingletonService service, ICustomLogger logger)
         {
             this.guidService = guidService;
+            this.service = service;
+            this.logger = logger;
         }
         [HttpGet]
         public ActionResult Get()
         {
-            return Ok(new { Guid = guidService.GetGuid() });
+            return Ok(new
+            {
+                Guid = guidService.GetGuid(),
+                SingletonGuid = service.GetGuid()
+            });
         }
+
+        [HttpGet]
+        [Route("logger")]
+        public ActionResult GetLogger()
+        {
+            var result =
+            new
+            {
+                Logger = logger.Log("Hello")
+            };
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("greet")]
+        public ActionResult Greet([FromServices] IGreetings greetingService)
+        {
+            return Ok(new
+            {
+                Greet = greetingService.greet("Aniket")
+            });
+        }
+
     }
 }

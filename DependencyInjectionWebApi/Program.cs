@@ -18,6 +18,11 @@ namespace DependencyInjectionWebApi
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                // Code to suppress Captive dependency error
+                //.UseDefaultServiceProvider(options=>
+                //{
+                //    options.ValidateScopes = false;
+                //})
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
