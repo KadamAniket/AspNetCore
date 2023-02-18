@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SwaggerOpenApi</name>
+    </assembly>
+    <members>
+        <member name="M:SwaggerOpenApi.Controllers.TeamsController.Get">
+            <summary>
+            Get all the teams
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SwaggerOpenApi.Controllers.TeamsController.GetTeam(System.String)">
+            <summary>
+            Get team info based on name
+            </summary>
+            <param name="teamName">Team name</param>
+            <returns>Team information</returns>
+        </member>
+        <member name="M:SwaggerOpenApi.Controllers.TeamsController.Post(SwaggerOpenApi.Models.Team)">
+            <summary>
+            Add new team
+            </summary>
+            <param name="team">Team</param>
+            <returns></returns>
+            <remarks>
+            Team{
+            Name= "Renault",
+            Country ="India",
+            Wins="2"
+            }
+            </remarks>
+        </member>
+    </members>
+</doc>

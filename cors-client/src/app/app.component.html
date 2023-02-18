@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Country</th>
+    <th>DriverChampionShips</th>
+    <th>ConstructorChampionShips</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of teams">
+
+        <td>{{team.name}}</td>
+        <td>{{team.country}}</td>
+        <td>{{team.driverChampionShips}}</td>
+        <td>{{team.constructorChampionShips}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
